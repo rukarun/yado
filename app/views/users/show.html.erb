@@ -1,0 +1,34 @@
+<h1>アカウント情報</h1>
+
+<div>
+  <div>
+    <label>ユーザー名</label>
+    <%= @user.full_name %>
+  </div>
+
+  <div>
+    <label>プロフィール画像</label>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar %>
+    <% else %>
+      <%= image_tag 'avatar_default.png' %>
+    <% end %>
+  </div>
+
+  <div>
+    <label>メールアドレス</label>
+    <%= @user.email %>
+  </div>
+
+  <div>
+    <label>パスワード</label>
+    <div>********</div>
+  </div>
+
+  <div>
+    <label>プロフィール</label>
+    <%= @user.profile %>
+  </div>
+
+  <%= link_to  "編集する", edit_user_registration_path %>
+</div>
