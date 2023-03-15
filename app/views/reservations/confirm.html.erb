@@ -1,0 +1,25 @@
+<h3>予約内容確認</h3>
+
+<%= form_with model: @reservation, method: :post, url: reservations_path, local: true, scope: :reservation  do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+
+    <%= f.label :start_date, "開始日"%>
+    <%= f.hidden_field :start_date %>
+    <%= l @reservation.start_date %>
+
+    <%= f.label :end_date, "終了日"%>
+    <%= f.hidden_field :end_date %>
+    <%= l @reservation.end_date %>
+
+    <%= f.hidden_field :total_day %>
+    <h5>日数: <%= @reservation.total_day %>日</h5>
+
+    <%= f.hidden_field :people %>
+    <h5>人数: <%= @reservation.people %>人</h5>
+
+    <%= f.hidden_field :total_price %>
+    <h5>お支払い金額: <%= @reservation.total_price %>円</h5>
+
+    <%= f.submit "予約を確定"%>
+<% end %>
